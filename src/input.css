@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat;
+  }
+  
+  p {
+    @apply font-roboto;
+  }
+}
+
+/* Estilos personalizados */
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Animaciones para scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos para el menu */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilos para la galería */
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el lightbox (se añadirá mediante JavaScript) */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Botones de navegación para el carrusel */
+.carousel-prev,
+.carousel-next {
+    transition: all 0.3s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    transform: scale(1.1);
+}
+
+/* Effecto hover para botones */
+.btn-hover-effect {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hover-effect:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-hover-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.btn-hover-effect:hover::after {
+    transform: translateX(0);
+}
+
+/* Estilos para el carrusel */
+.carousel-item {
+    transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+}
+
+.carousel-item img {
+    transform: scale(1);
+    transition: transform 7s ease-in-out;
+}
+
+.carousel-item[aria-hidden="false"] img {
+    transform: scale(1.05);
+}
