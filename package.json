@@ -4,7 +4,10 @@
   "description": "Sitio web del Club Atletico San Antonio de Padua",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "copy": "cp src/index.html dist/ && cp -r src/js dist/",
+    "deploy": "npm run build && npm run copy"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",

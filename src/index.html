@@ -57,18 +57,18 @@
             <div class="carousel-item absolute w-full h-full opacity-0 transition-opacity duration-1000">
                 <div class="absolute inset-0 bg-gradient-to-t from-casa-black via-casa-black/50 to-transparent z-10"></div>
                 <picture>
-                    <source srcset="https://res.cloudinary.com/djt5usq8q/image/upload/v1744662801/basquet2_tolvlo.jpg" media="(min-width: 768px)">
-                    <source srcset="https://res.cloudinary.com/djt5usq8q/image/upload/v1744662801/basquet2_tolvlo.jpg" media="(min-width: 640px)">
-                    <img src="https://res.cloudinary.com/djt5usq8q/image/upload/v1744662801/basquet2_tolvlo.jpg" 
+                    <source srcset="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,h_700,w_1600,g_auto/v1744663912/Padua_vs_Midland_Fecha_1__2_gawd6p.jpg" media="(min-width: 768px)">
+                    <source srcset="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,h_600,w_800,g_auto/v1744663912/Padua_vs_Midland_Fecha_1__2_gawd6p.jpg" media="(min-width: 640px)">
+                    <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,h_500,w_600,g_auto/v1744663912/Padua_vs_Midland_Fecha_1__2_gawd6p.jpg" 
                         class="w-full h-full object-cover"
-                        style="object-position: 50% 20%"
+                        style="object-position: center center"
                         alt="Básquet CASA de Padua"
                         loading="eager">
                 </picture>
                 <div class="absolute bottom-0 left-0 right-0 p-8 text-white text-center bg-gradient-to-t from-casa-black/90 to-transparent pt-20 z-20">
                     <h2 class="text-4xl font-montserrat font-bold mb-4">Básquet CASA de Padua</h2>
                     <p class="text-xl mb-6">Formando jugadores desde 1940</p>
-                    <a href="https://www.instagram.com/basquet.casadepadua/" 
+                    <a href="https://www.instagram.com/basquet.casadepadua/" target="_blank"
                        class="bg-casa-yellow text-casa-black font-montserrat px-8 py-4 rounded-full hover:bg-casa-purple hover:text-casa-white transition-all duration-300 shadow-lg inline-flex items-center">
                        <i class="fab fa-instagram mr-2"></i>Seguinos en Instagram
                     </a>
@@ -88,7 +88,7 @@
                 <div class="absolute bottom-0 left-0 right-0 p-8 text-white text-center bg-gradient-to-t from-casa-black/90 to-transparent pt-20 z-20">
                     <h2 class="text-4xl font-montserrat font-bold mb-4">Vóley CASA de Padua</h2>
                     <p class="text-xl mb-6">El deporte que nos une</p>
-                    <a href="https://www.instagram.com/voley.casadepadua/" 
+                    <a href="https://www.instagram.com/voley.casadepadua/" target="_blank"
                        class="bg-casa-yellow text-casa-black font-montserrat px-8 py-4 rounded-full hover:bg-casa-purple hover:text-casa-white transition-all duration-300 shadow-lg inline-flex items-center">
                        <i class="fab fa-instagram mr-2"></i>Seguinos en Instagram
                     </a>
@@ -108,7 +108,7 @@
                 <div class="absolute bottom-0 left-0 right-0 p-8 text-white text-center bg-gradient-to-t from-casa-black/90 to-transparent pt-20 z-20">
                     <h2 class="text-4xl font-montserrat font-bold mb-4">Gimnasia Rítmica</h2>
                     <p class="text-xl mb-6">Arte y deporte en movimiento</p>
-                    <a href="https://www.instagram.com/ritmica.casadepadua/" 
+                    <a href="https://www.instagram.com/ritmica.casadepadua/" target="_blank"
                        class="bg-casa-yellow text-casa-black font-montserrat px-8 py-4 rounded-full hover:bg-casa-purple hover:text-casa-white transition-all duration-300 shadow-lg inline-flex items-center">
                        <i class="fab fa-instagram mr-2"></i>Seguinos en Instagram
                     </a>
@@ -158,82 +158,204 @@
 
     <section class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-montserrat font-bold text-casa-purple mb-8 text-center animate-on-scroll">Últimas Novedades</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow animate-on-scroll">
-                    <div class="h-56 overflow-hidden">
-                        <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_300/v1744476121/basquet_dn8fsa.jpg" alt="Campeonato de Básquet" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+            <h2 class="text-4xl font-montserrat font-bold text-casa-purple mb-12 text-center animate-on-scroll">Últimas Novedades</h2>
+            
+            <div class="relative">
+                <!-- Decoraciones -->
+                <div class="hidden md:block absolute -top-6 -right-6 w-20 h-20 bg-casa-yellow rounded-full opacity-20"></div>
+                <div class="hidden md:block absolute -bottom-6 -left-6 w-16 h-16 bg-casa-purple rounded-full opacity-20"></div>
+                
+                <!-- Tarjetas de noticias -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                    <!-- Noticia 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_300/v1744476121/basquet_dn8fsa.jpg" 
+                                alt="Campeonato de Básquet" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
+                                loading="lazy">
+                            <div class="absolute top-0 right-0 bg-casa-yellow text-casa-black font-bold px-4 py-2 rounded-bl-xl">
+                                12 Mayo
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-casa-purple/20 flex items-center justify-center mr-3">
+                                    <i class="fas fa-basketball-ball text-casa-purple text-lg"></i>
+                                </div>
+                                <span class="text-sm text-gray-500">Básquet</span>
+                            </div>
+                            <h3 class="font-montserrat text-xl font-bold mb-3 line-clamp-2 hover:text-casa-purple transition-colors">Campeonato Regional de Básquet</h3>
+                            <p class="font-roboto text-gray-600 mb-5 line-clamp-3">Nuestro equipo Sub-17 se consagró campeón en el torneo regional. ¡Felicitaciones a todo el equipo y cuerpo técnico por este gran logro!</p>
+                            <a href="#" class="group inline-flex items-center text-casa-purple font-semibold hover:text-casa-yellow transition-colors duration-300">
+                                Leer más 
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <div class="text-casa-yellow mb-2">12 Mayo, 2024</div>
-                        <h3 class="font-montserrat text-xl font-bold mb-2">Campeonato Regional de Básquet</h3>
-                        <p class="font-roboto text-gray-600 mb-4">Nuestro equipo Sub-17 se consagró campeón en el torneo regional. ¡Felicitaciones!</p>
-                        <a href="#" class="text-casa-purple hover:text-casa-yellow transition-colors duration-300 inline-flex items-center">
-                            Leer más 
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
+                    
+                    <!-- Noticia 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll" style="animation-delay: 200ms;">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_300/v1744476121/voley_li8dbt.jpg" 
+                                alt="Torneo de Vóley" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
+                                loading="lazy">
+                            <div class="absolute top-0 right-0 bg-casa-yellow text-casa-black font-bold px-4 py-2 rounded-bl-xl">
+                                5 Mayo
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-casa-purple/20 flex items-center justify-center mr-3">
+                                    <i class="fas fa-volleyball-ball text-casa-purple text-lg"></i>
+                                </div>
+                                <span class="text-sm text-gray-500">Vóley</span>
+                            </div>
+                            <h3 class="font-montserrat text-xl font-bold mb-3 line-clamp-2 hover:text-casa-purple transition-colors">Torneo Interescolar de Vóley</h3>
+                            <p class="font-roboto text-gray-600 mb-5 line-clamp-3">Se realizó con éxito el torneo interescolar en nuestras instalaciones con la participación de 12 escuelas. Agradecemos a todos los participantes y organizadores.</p>
+                            <a href="#" class="group inline-flex items-center text-casa-purple font-semibold hover:text-casa-yellow transition-colors duration-300">
+                                Leer más 
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow animate-on-scroll" style="animation-delay: 200ms;">
-                    <div class="h-56 overflow-hidden">
-                        <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_300/v1744476121/voley_li8dbt.jpg" alt="Torneo de Vóley" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <div class="text-casa-yellow mb-2">5 Mayo, 2024</div>
-                        <h3 class="font-montserrat text-xl font-bold mb-2">Torneo Interescolar de Vóley</h3>
-                        <p class="font-roboto text-gray-600 mb-4">Se realizó con éxito el torneo interescolar en nuestras instalaciones con la participación de 12 escuelas.</p>
-                        <a href="#" class="text-casa-purple hover:text-casa-yellow transition-colors duration-300 inline-flex items-center">
-                            Leer más 
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow animate-on-scroll" style="animation-delay: 400ms;">
-                    <div class="h-56 overflow-hidden">
-                        <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_300/v1744476121/gimnasia-ritmica_oygwjk.jpg" alt="Exhibición de Gimnasia" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <div class="text-casa-yellow mb-2">28 Abril, 2024</div>
-                        <h3 class="font-montserrat text-xl font-bold mb-2">Exhibición de Gimnasia Rítmica</h3>
-                        <p class="font-roboto text-gray-600 mb-4">Nuestras gimnastas realizaron una brillante presentación en el Centro Cultural de Padua.</p>
-                        <a href="#" class="text-casa-purple hover:text-casa-yellow transition-colors duration-300 inline-flex items-center">
-                            Leer más 
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
+                    
+                    <!-- Noticia 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll" style="animation-delay: 400ms;">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_300/v1744476121/gimnasia-ritmica_oygwjk.jpg" 
+                                alt="Exhibición de Gimnasia" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
+                                loading="lazy">
+                            <div class="absolute top-0 right-0 bg-casa-yellow text-casa-black font-bold px-4 py-2 rounded-bl-xl">
+                                28 Abril
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-casa-purple/20 flex items-center justify-center mr-3">
+                                    <i class="fas fa-ribbon text-casa-purple text-lg"></i>
+                                </div>
+                                <span class="text-sm text-gray-500">Gimnasia Rítmica</span>
+                            </div>
+                            <h3 class="font-montserrat text-xl font-bold mb-3 line-clamp-2 hover:text-casa-purple transition-colors">Exhibición de Gimnasia Rítmica</h3>
+                            <p class="font-roboto text-gray-600 mb-5 line-clamp-3">Nuestras gimnastas realizaron una brillante presentación en el Centro Cultural de Padua. Una muestra de talento, dedicación y esfuerzo.</p>
+                            <a href="#" class="group inline-flex items-center text-casa-purple font-semibold hover:text-casa-yellow transition-colors duration-300">
+                                Leer más 
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-10">
-                <a href="#" class="inline-block bg-casa-purple text-white font-montserrat px-8 py-3 rounded-full hover:bg-casa-yellow hover:text-casa-black transition-all duration-300 shadow-lg">Ver todas las noticias</a>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-casa-purple text-white font-montserrat px-10 py-4 rounded-full hover:bg-casa-yellow hover:text-casa-black transition-all duration-300 shadow-lg transform hover:-translate-y-1 hover:shadow-xl">
+                    <span class="inline-flex items-center">
+                        <span>Ver todas las noticias</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </span>
+                </a>
             </div>
         </div>
     </section>
 
     <section class="py-16">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-montserrat font-bold text-casa-purple mb-8 text-center animate-on-scroll">Galería de Fotos</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="gallery-item overflow-hidden rounded-lg animate-on-scroll">
-                    <img src="https://res.cloudinary.com/djt5usq8q/image/upload/v1744662801/basquet2_tolvlo.jpg" alt="Básquet CASA" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500 cursor-pointer" loading="lazy">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg animate-on-scroll" style="animation-delay: 100ms;">
-                    <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_400/v1744476121/voley_li8dbt.jpg" alt="Vóley CASA" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500 cursor-pointer" loading="lazy">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg animate-on-scroll" style="animation-delay: 200ms;">
-                    <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_400/v1744476121/gimnasia-ritmica_oygwjk.jpg" alt="Gimnasia CASA" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500 cursor-pointer" loading="lazy">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg animate-on-scroll" style="animation-delay: 300ms;">
-                    <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,w_400/v1744476120/logo_rvlpvo.webp" alt="Logo CASA" class="w-full h-64 object-contain bg-gray-100 hover:scale-110 transition-transform duration-500 cursor-pointer" loading="lazy">
+            <h2 class="text-4xl font-montserrat font-bold text-casa-purple mb-12 text-center animate-on-scroll">Galería de Fotos</h2>
+            
+            <div class="relative">
+                <!-- Decoración -->
+                <div class="hidden lg:block absolute -top-10 -right-10 w-40 h-40 bg-casa-yellow/20 rounded-full blur-xl"></div>
+                <div class="hidden lg:block absolute -bottom-10 -left-10 w-32 h-32 bg-casa-purple/20 rounded-full blur-xl"></div>
+                
+                <!-- Galería principal -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 relative z-10">
+                    <!-- Imagen 1 - Grande -->
+                    <div class="gallery-item col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 animate-on-scroll">
+                        <img src="https://res.cloudinary.com/djt5usq8q/image/upload/v1744663912/Padua_vs_Midland_Fecha_1__2_gawd6p.jpg" 
+                            alt="Básquet CASA" 
+                            class="w-full h-full object-cover hover:scale-105 transition-all duration-1000 cursor-pointer"
+                            style="height: 500px"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-casa-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <div>
+                                <h3 class="text-white text-xl font-bold mb-2">Equipo de Básquet</h3>
+                                <p class="text-white/90 text-sm">Nuestro primer equipo en acción</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Imagen 2 -->
+                    <div class="gallery-item rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 animate-on-scroll" style="animation-delay: 100ms;">
+                        <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_400/v1744476121/voley_li8dbt.jpg" 
+                            alt="Vóley CASA" 
+                            class="w-full h-64 object-cover hover:scale-105 transition-all duration-1000 cursor-pointer"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-casa-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <div>
+                                <h3 class="text-white text-lg font-bold">Vóley Femenino</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Imagen 3 -->
+                    <div class="gallery-item rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 animate-on-scroll" style="animation-delay: 200ms;">
+                        <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,c_fill,w_400,h_400/v1744476121/gimnasia-ritmica_oygwjk.jpg" 
+                            alt="Gimnasia CASA" 
+                            class="w-full h-64 object-cover hover:scale-105 transition-all duration-1000 cursor-pointer"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-casa-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <div>
+                                <h3 class="text-white text-lg font-bold">Gimnasia Rítmica</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Imagen 4 -->
+                    <div class="gallery-item rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 animate-on-scroll" style="animation-delay: 300ms;">
+                        <img src="https://res.cloudinary.com/djt5usq8q/image/upload/v1744663878/Club_CASA_de_Padua_01_emnk5a.jpg" 
+                            alt="Club CASA Histórico" 
+                            class="w-full h-64 object-cover hover:scale-105 transition-all duration-1000 cursor-pointer"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-casa-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <div>
+                                <h3 class="text-white text-lg font-bold">Historia del Club</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Imagen 5 -->
+                    <div class="gallery-item hidden md:block rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 animate-on-scroll" style="animation-delay: 400ms;">
+                        <img src="https://res.cloudinary.com/djt5usq8q/image/upload/f_auto,q_auto:good,w_400/v1744476120/logo_rvlpvo.webp" 
+                            alt="Logo CASA" 
+                            class="w-full h-64 object-contain bg-casa-black p-6 hover:scale-105 transition-all duration-1000 cursor-pointer"
+                            loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-casa-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <div>
+                                <h3 class="text-white text-lg font-bold">Nuestro Escudo</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="text-center mt-10">
-                <a href="#" class="inline-block bg-casa-purple text-white font-montserrat px-8 py-3 rounded-full hover:bg-casa-yellow hover:text-casa-black transition-all duration-300 shadow-lg">Ver más fotos</a>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-casa-purple text-white font-montserrat px-10 py-4 rounded-full hover:bg-casa-yellow hover:text-casa-black transition-all duration-300 shadow-lg transform hover:-translate-y-1">
+                    <span class="inline-flex items-center">
+                        <i class="fas fa-images mr-2"></i>
+                        <span>Ver más fotos</span>
+                    </span>
+                </a>
             </div>
         </div>
     </section>
@@ -338,6 +460,56 @@
         </div>
     </section>
 
+    <!-- Sección Centenario del Club -->
+    <section class="py-20 bg-casa-black text-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 relative animate-on-scroll">
+                    <div class="absolute -top-5 -left-5 w-32 h-32 bg-casa-yellow rounded-full opacity-10"></div>
+                    <h2 class="text-4xl md:text-5xl font-montserrat font-bold mb-6 relative z-10">Camino al <span class="text-casa-yellow">Centenario</span></h2>
+                    <p class="text-gray-300 mb-8 leading-relaxed">El Club Atlético San Antonio de Padua fue fundado el <span class="text-casa-yellow font-semibold">12 de diciembre de 1926</span> como un equipo de fútbol al que le pusieron el nombre de Club Lancaster. Dos años después, en 1928, tomó el nombre que lo representa hasta el día de hoy: Club Atlético San Antonio de Padua.</p>
+                    
+                    <p class="text-gray-300 mb-8 leading-relaxed">Entre sus fundadores se encuentran Saverio Pagnotta, José Santos Farris, Manuel Ramón, Carlos y Juan Hermida, "Tito" Juinsse, Guillermo Baldatti, Enrique Oltruba, Alvarado, Espinosa y Arce. Estos pioneros recurrieron al cercano Ituzaingó Golf Club para adquirir sus primeras camisetas, confeccionadas con los colores que hoy son emblema del club: amarillo, negro y violeta.</p>
+                    
+                    <p class="text-gray-300 mb-8 leading-relaxed">Ubicado en la calle Independencia 725, Barrio Landaburu de San Antonio de Padua, el CASA se transformó rápidamente de un simple club de fútbol a una institución barrial completa, donde se practican diversos deportes y se realizan múltiples actividades sociales y culturales, como los tradicionales festejos de carnaval.</p>
+                    
+                    <div class="flex space-x-4">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-casa-yellow">98</div>
+                            <div class="text-gray-400 text-sm">Años de historia</div>
+                        </div>
+                        <div class="w-px bg-gray-700"></div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-casa-yellow">3</div>
+                            <div class="text-gray-400 text-sm">Deportes principales</div>
+                        </div>
+                        <div class="w-px bg-gray-700"></div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-casa-yellow">+1000</div>
+                            <div class="text-gray-400 text-sm">Socios actuales</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 relative animate-on-scroll" style="animation-delay: 300ms;">
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-casa-purple rounded-full opacity-10"></div>
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-500">
+                        <img src="https://res.cloudinary.com/djt5usq8q/image/upload/v1744663878/Club_CASA_de_Padua_01_emnk5a.jpg"
+                             alt="Club CASA de Padua histórico" 
+                             class="w-full"
+                             loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-casa-black/70 to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <div class="inline-block bg-casa-yellow px-4 py-1 text-casa-black text-sm font-bold rounded-full mb-3">1928</div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Nuestros orígenes</h3>
+                            <p class="text-white/90">Imagen histórica del Club Atlético San Antonio de Padua</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="py-16 bg-casa-purple text-white" id="contacto">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row">
@@ -359,7 +531,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-casa-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
-                                <span>(0220) 482-4186¿4</span>
+                                <span>(0220) 482-4186</span>
                             </li>
                             <li class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-casa-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -368,6 +540,21 @@
                                 <span>info@casadepadua.com.ar</span>
                             </li>
                         </ul>
+                    </div>
+                    
+                    <div class="mb-8 animate-on-scroll">
+                        <!-- Mapa de Google -->
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4 h-64">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.5037873169797!2d-58.70117312348612!3d-34.66898236091622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9471d1c7e3bd%3A0xf8cb73cdaaf0c96!2sClub%20Atl%C3%A9tico%20San%20Antonio%20de%20Padua!5e0!3m2!1ses-419!2sar!4v1744668599456!5m2!1ses-419!2sar" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
                     </div>
                     
                     <div class="animate-on-scroll">
