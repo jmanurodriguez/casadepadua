@@ -4,18 +4,17 @@
   "description": "Sitio web del Club Atletico San Antonio de Padua",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
-    "copy-win": "copy src\\index.html dist\\ && xcopy src\\js dist\\js\\ /E /I /Y",
-    "copy-unix": "cp src/index.html dist/ && cp -r src/js dist/js/",
-    "copy": "node -e \"require('fs').existsSync('/bin/bash') ? console.log('Unix environment') : console.log('Windows environment')\" && npm run copy-unix || npm run copy-win",
-    "deploy": "npm run build && npm run copy",
-    "vercel-build": "npm run build && npm run copy-unix"
+    "dev": "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./public/output.css",
+    "copy": "node scripts/copy-files.js",
+    "start": "serve public",
+    "vercel-build": "npm run build && npm run copy"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.17",
-    "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1"
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "serve": "^14.2.4",
+    "tailwindcss": "^3.4.17"
   },
   "keywords": [],
   "author": "",
