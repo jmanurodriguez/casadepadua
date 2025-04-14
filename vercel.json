@@ -12,11 +12,15 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/js/(.*)",
+      "dest": "/js/$1"
+    },
+    {
+      "src": "/(.+\\.(js|css|jpg|jpeg|png|gif|ico|svg|webp))",
       "dest": "/$1"
     },
     {
-      "src": "/",
+      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]

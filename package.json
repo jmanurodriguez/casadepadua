@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
-    "copy": "cp src/index.html dist/ && cp -r src/js dist/",
-    "deploy": "npm run build && npm run copy"
+    "copy-win": "copy src\\index.html dist\\ && xcopy src\\js dist\\js\\ /E /I /Y",
+    "copy-unix": "cp src/index.html dist/ && cp -r src/js dist/",
+    "copy": "node -e \"require('fs').existsSync('/bin/bash') ? process.exit(0) : process.exit(1)\" && npm run copy-unix || npm run copy-win",
+    "deploy": "npm run build && npm run copy",
+    "vercel-build": "npm run deploy"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
