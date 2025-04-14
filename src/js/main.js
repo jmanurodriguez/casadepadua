@@ -66,97 +66,108 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Carrusel mejorado
     const carousel = document.getElementById('carousel');
-    const items = document.querySelectorAll('.carousel-item');
-    const prevButton = document.querySelector('.carousel-prev');
-    const nextButton = document.querySelector('.carousel-next');
-    let currentIndex = 0;
+    if (carousel) {
+        const items = document.querySelectorAll('.carousel-item');
+        const prevButton = document.querySelector('.carousel-prev');
+        const nextButton = document.querySelector('.carousel-next');
+        let currentIndex = 0;
 
-    // Crear indicadores
-    const indicators = document.createElement('div');
-    indicators.className = 'absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20';
-    items.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.className = `w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors`;
-        dot.setAttribute('aria-label', `Ir a la diapositiva ${index + 1}`);
-        dot.addEventListener('click', () => showSlide(index));
-        indicators.appendChild(dot);
-    });
-    carousel.appendChild(indicators);
-
-    function updateIndicators() {
-        const dots = indicators.children;
-        Array.from(dots).forEach((dot, index) => {
-            dot.className = `w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-white' : 'bg-white/50 hover:bg-white'
-            }`;
-            dot.setAttribute('aria-current', index === currentIndex ? 'true' : 'false');
+        // Crear indicadores
+        const indicators = document.createElement('div');
+        indicators.className = 'absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20';
+        items.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors`;
+            dot.setAttribute('aria-label', `Ir a la diapositiva ${index + 1}`);
+            dot.addEventListener('click', () => showSlide(index));
+            indicators.appendChild(dot);
         });
-    }
+        carousel.appendChild(indicators);
 
-    function showSlide(index) {
-        items.forEach(item => {
-            item.style.opacity = '0';
-            item.style.zIndex = '0';
-            item.setAttribute('aria-hidden', 'true');
-        });
-        
-        // Añadimos una pequeña espera para la transición
-        setTimeout(() => {
-            items[index].style.opacity = '1';
-            items[index].style.zIndex = '1';
-            items[index].setAttribute('aria-hidden', 'false');
-        }, 50);
-        
-        currentIndex = index;
-        updateIndicators();
-    }
+        function updateIndicators() {
+            const dots = indicators.children;
+            Array.from(dots).forEach((dot, index) => {
+                dot.className = `w-3 h-3 rounded-full transition-colors ${
+                    index === currentIndex ? 'bg-white' : 'bg-white/50 hover:bg-white'
+                }`;
+                dot.setAttribute('aria-current', index === currentIndex ? 'true' : 'false');
+            });
+        }
 
-    function nextSlide() {
-        showSlide((currentIndex + 1) % items.length);
-    }
+        function showSlide(index) {
+            items.forEach(item => {
+                item.style.opacity = '0';
+                item.style.zIndex = '0';
+                item.setAttribute('aria-hidden', 'true');
+            });
+            
+            // Añadimos una pequeña espera para la transición
+            setTimeout(() => {
+                items[index].style.opacity = '1';
+                items[index].style.zIndex = '1';
+                items[index].setAttribute('aria-hidden', 'false');
+            }, 50);
+            
+            currentIndex = index;
+            updateIndicators();
+        }
 
-    function prevSlide() {
-        showSlide((currentIndex - 1 + items.length) % items.length);
-    }
+        function nextSlide() {
+            showSlide((currentIndex + 1) % items.length);
+        }
 
-    // Event listeners para los botones
-    prevButton.addEventListener('click', prevSlide);
-    nextButton.addEventListener('click', nextSlide);
+        function prevSlide() {
+            showSlide((currentIndex - 1 + items.length) % items.length);
+        }
 
-    // Soporte para gestos touch
-    let touchStartX = 0;
-    let touchEndX = 0;
+        // Event listeners para los botones
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
 
-    carousel.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, false);
+        // Soporte para gestos touch
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-    carousel.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, false);
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
 
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                prevSlide();
+        carousel.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
             }
         }
+
+        // Mostrar primer slide y comenzar rotación
+        showSlide(0);
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        // Detener rotación automática cuando el usuario interactúa
+        carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        carousel.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+        
+        // Aseguramos que los enlaces de Instagram funcionen correctamente
+        const instagramLinks = document.querySelectorAll('.carousel-item a[href*="instagram"]');
+        instagramLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation(); // Evita que el click se propague al carousel
+                window.open(link.href, '_blank', 'noopener,noreferrer');
+            });
+        });
     }
-
-    // Mostrar primer slide y comenzar rotación
-    showSlide(0);
-    let slideInterval = setInterval(nextSlide, 5000);
-
-    // Detener rotación automática cuando el usuario interactúa
-    carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    carousel.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(nextSlide, 5000);
-    });
 
     // Animaciones al scroll
     const animateOnScroll = () => {
@@ -174,8 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Para elementos visibles en la carga inicial
 
-    // Lightbox para la galería
-    function createLightbox() {
+    // Lightbox para la galería (versión simplificada que no usa almacenamiento)
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    if (galleryItems.length > 0) {
+        // Crear lightbox una sola vez
         const lightbox = document.createElement('div');
         lightbox.className = 'lightbox';
         lightbox.innerHTML = `
@@ -184,40 +197,40 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.body.appendChild(lightbox);
 
+        const lightboxImage = lightbox.querySelector('.lightbox-content');
         const closeButton = lightbox.querySelector('.lightbox-close');
-        closeButton.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.classList.remove('active');
-            }
-        });
-
-        return lightbox;
-    }
-
-    const lightbox = createLightbox();
-    const lightboxImage = lightbox.querySelector('.lightbox-content');
-    const galleryItems = document.querySelectorAll('.gallery-item img');
-
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            lightboxImage.src = item.src;
-            lightboxImage.alt = item.alt;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevenir scroll
-        });
-    });
-
-    // Cerrar el lightbox con tecla ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        
+        // Función para cerrar el lightbox
+        function closeLightbox() {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
         }
-    });
+        
+        // Eventos para cerrar el lightbox
+        closeButton.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Abrir lightbox al hacer clic en imágenes de la galería
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightboxImage.src = item.src;
+                lightboxImage.alt = item.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevenir scroll
+            });
+        });
+        
+        // Cerrar con la tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    }
 
     // Validación de formulario
     const contactForm = document.getElementById('contactForm');
