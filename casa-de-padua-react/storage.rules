@@ -1,0 +1,10 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read: if true;  // Permitir lectura pública
+      allow write: if false; // Restringir escritura
+    }
+  }
+}

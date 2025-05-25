@@ -1,0 +1,66 @@
+.canva-embed {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+}
+
+.canva-embed:hover {
+    transform: translateY(-2px);
+}
+
+/* Ocultar las flechas de navegación del carousel cuando no se está interactuando */
+.canva-embed:not(:hover) .canva-presentation-control {
+    display: none !important;
+}
+
+/* Control de navegación personalizado */
+.canva-embed .canva-presentation-control {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.canva-embed:hover .canva-presentation-control {
+    opacity: 1;
+}
+
+/* Asegurarse que el iframe ocupe todo el espacio disponible */
+.embed-responsive iframe {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Efecto de brillo al pasar el mouse */
+.canva-embed::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.canva-embed:hover::after {
+    opacity: 1;
+    animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}

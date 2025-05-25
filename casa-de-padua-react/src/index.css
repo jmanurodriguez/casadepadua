@@ -1,0 +1,38 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './styles/animations.css';
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  @apply bg-casa-white text-casa-black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilos para el scroll suave en links internos */
+a[href^="#"] {
+  scroll-margin-top: 5rem;
+}
+
+/* Mejoras de accesibilidad */
+:focus {
+  outline: 2px solid #6B4E9E;
+  outline-offset: 2px;
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) {
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+}
