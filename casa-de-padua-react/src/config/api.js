@@ -13,3 +13,15 @@ export const getApiBaseUrl = () => {
   // En producción, usamos la URL completa del backend en Render
   return isDevelopment ? '' : PRODUCTION_API_BASE_URL;
 };
+
+// Función para construir URLs de endpoints específicos
+export const getApiUrl = (endpoint) => {
+  const baseUrl = getApiBaseUrl();
+  // Si estamos en desarrollo, el endpoint ya incluye 'api/', así que lo usamos directamente
+  // Si estamos en producción, necesitamos concatenar con la URL base
+  if (isDevelopment) {
+    return `/${endpoint}`;
+  } else {
+    return `${baseUrl}/${endpoint}`;
+  }
+};

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Final de Enlaces</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .test-link {
+            display: inline-block;
+            background-color: #ffca28;
+            color: #111;
+            padding: 12px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .test-link:hover {
+            background-color: #8e24aa;
+            color: white;
+        }
+        .btn {
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .results {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 3px solid #2196f3;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .failsafe-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diagnóstico Final de Enlaces de Instagram</h1>
+    
+    <div class="section">
+        <h2>Enlaces HTML Puros</h2>
+        <div class="link-container">
+            <a class="test-link" href="https://www.instagram.com/basquet.casadepadua/" target="_blank">
+                Básquet CASA de Padua
+            </a>
+            <a class="test-link" href="https://www.instagram.com/voley.casadepadua/" target="_blank">
+                Vóley CASA de Padua
+            </a>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Enlaces con JavaScript onClick</h2>
+        <div class="link-container">
+            <a class="test-link" href="#" onclick="window.open('https://www.instagram.com/basquet.casadepadua/', '_blank'); return false;">
+                Básquet CASA de Padua (JS onClick)
+            </a>
+            <a class="test-link" href="#" onclick="window.open('https://www.instagram.com/voley.casadepadua/', '_blank'); return false;">
+                Vóley CASA de Padua (JS onClick)
+            </a>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Enlaces directos con 'location.href'</h2>
+        <div class="link-container">
+            <button class="btn" onclick="location.href='https://www.instagram.com/basquet.casadepadua/'">
+                Básquet CASA de Padua (location.href)
+            </button>
+            <button class="btn" onclick="location.href='https://www.instagram.com/voley.casadepadua/'">
+                Vóley CASA de Padua (location.href)
+            </button>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Diagnóstico de Enlaces</h2>
+        <button class="btn" id="check-links">Verificar Enlaces en la Página</button>
+        <div class="results" id="link-results">Los resultados aparecerán aquí...</div>
+    </div>
+    
+    <div class="failsafe-link">
+        <p><strong>Enlaces de respaldo (garantizados):</strong></p>
+        <p>
+            <a href="https://instagram.com">Instagram Principal</a> | 
+            <a href="https://google.com">Google</a>
+        </p>
+    </div>
+    
+    <script>
+        // Registrar eventos de clic en todos los enlaces
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('click', function(e) {
+                console.log(`Elemento clickeado: ${this.textContent.trim()}`);
+                if (this.href) {
+                    console.log(`URL: ${this.href}`);
+                }
+            });
+        });
+        
+        // Diagnóstico de enlaces
+        document.getElementById('check-links').addEventListener('click', function() {
+            const results = document.getElementById('link-results');
+            const links = document.querySelectorAll('a');
+            let report = '== DIAGNÓSTICO DE ENLACES ==\n\n';
+            
+            links.forEach((link, i) => {
+                report += `Link #${i + 1}: "${link.textContent.trim()}"\n`;
+                report += `- href: ${link.href}\n`;
+                report += `- target: ${link.target}\n`;
+                report += `- onclick presente: ${link.hasAttribute('onclick')}\n`;
+                report += `- z-index: ${getComputedStyle(link).zIndex}\n`;
+                report += `- position: ${getComputedStyle(link).position}\n`;
+                report += `- pointer-events: ${getComputedStyle(link).pointerEvents}\n\n`;
+            });
+            
+            results.textContent = report;
+        });
+    </script>
+</body>
+</html>

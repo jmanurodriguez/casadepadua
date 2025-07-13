@@ -9,7 +9,7 @@ export default defineConfig({
     strictPort: false, // Permitir el uso de otro puerto si 5173 está ocupado
     proxy: {
       '/api': {
-        target: 'http://localhost:8080', // Actualizado al puerto 8080 del backend
+        target: 'http://localhost:8000', // Actualizado al puerto 8000 del backend
         changeOrigin: true,
         secure: false,
         headers: {

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Instagram Links - React</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Importaciones básicas para React -->
+    <script type="module">
+        // Importar desde la distribución de desarrollo de React
+        import React from "https://esm.sh/react@18.2.0";
+        import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+        
+        // Definir el componente
+        function App() {
+          const links = [
+            {
+              name: "Básquet CASA de Padua",
+              url: "https://www.instagram.com/basquet.casadepadua/"
+            },
+            {
+              name: "Vóley CASA de Padua",
+              url: "https://www.instagram.com/voley.casadepadua/"
+            },
+            {
+              name: "Gimnasia Rítmica",
+              url: "https://www.instagram.com/ritmica.casadepadua/"
+            },
+            {
+              name: "Natatorio CASA de Padua",
+              url: "https://www.instagram.com/natatorio.casadepadua/"
+            }
+          ];
+
+          return React.createElement(
+            "div",
+            {
+              style: {
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "20px",
+                fontFamily: "Arial, sans-serif",
+                minHeight: "100vh",
+                backgroundColor: "#f5f5f5"
+              }
+            },
+            React.createElement("h1", null, "Enlaces de Instagram CASA de Padua"),
+            React.createElement(
+              "div",
+              {
+                style: {
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "15px",
+                  marginTop: "20px"
+                }
+              },
+              links.map((link, index) =>
+                React.createElement(
+                  "a",
+                  {
+                    key: index,
+                    href: link.url,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    style: {
+                      backgroundColor: "#ffca28",
+                      color: "#111",
+                      padding: "15px 25px",
+                      borderRadius: "25px",
+                      textDecoration: "none",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      fontWeight: "bold",
+                      transition: "all 0.3s"
+                    }
+                  },
+                  React.createElement("span", { style: { marginRight: "10px" } }, "📱"),
+                  link.name
+                )
+              )
+            ),
+            React.createElement(
+              "p",
+              { style: { marginTop: "30px" } },
+              "Estos enlaces son puros sin interferencias de otros componentes"
+            ),
+            React.createElement(
+              "a", 
+              { 
+                href: "#", 
+                style: {
+                  marginTop: "20px",
+                  backgroundColor: "#e91e63",
+                  color: "white",
+                  padding: "15px 25px",
+                  borderRadius: "25px",
+                  textDecoration: "none"
+                },
+                onClick: (e) => {
+                  e.preventDefault();
+                  history.back();
+                }
+              },
+              "Volver"
+            )
+          );
+        }
+
+        // Renderizar la aplicación
+        const container = document.getElementById("root");
+        const root = createRoot(container);
+        root.render(React.createElement(App));
+    </script>
+</body>
+</html>

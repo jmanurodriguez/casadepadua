@@ -12,7 +12,7 @@ export default function AccionSocial() {
         {
             id: 1,
             title: "Campaña Solidaria con Bahía Blanca",
-            image: "https://res.cloudinary.com/djt5usq8q/image/upload/v1714509529/inundacion-bahia-blanca_jiwdrx.jpg",
+            image: "https://res.cloudinary.com/djt5usq8q/image/upload/v1752419627/bahiablanca_mu1byn.jpg",
             alt: "Inundaciones en Bahía Blanca",
             description: "Ante la emergencia climática que afectó a Bahía Blanca en abril de 2023, nuestro club organizó una campaña de recolección de alimentos no perecederos, agua potable, artículos de limpieza y ropa para las familias damnificadas. Gracias a la generosidad de nuestra comunidad, logramos enviar más de 3 toneladas de ayuda humanitaria que fue distribuida a través de la red de clubes de la provincia de Buenos Aires.",
             details: "La campaña incluyó puntos de recolección en nuestras instalaciones y voluntarios que clasificaron y organizaron las donaciones. El transporte fue gestionado con empresas locales que se sumaron solidariamente a la iniciativa. Continuamos apoyando a las comunidades afectadas con programas de reconstrucción a largo plazo."
@@ -20,7 +20,7 @@ export default function AccionSocial() {
         {
             id: 2,
             title: "Campaña de Donación de Sangre",
-            image: "https://res.cloudinary.com/djt5usq8q/image/upload/v1714509529/donacion-sangre_pmjd6h.jpg",
+            image: "https://res.cloudinary.com/djt5usq8q/image/upload/v1752420263/Campa%C3%B1a_de_Donaci%C3%B3n_de_Sangre_m6kh4k.png",
             alt: "Donación de Sangre",
             description: "En colaboración con el Centro Regional de Hemoterapia de San Miguel, realizamos jornadas trimestrales de donación voluntaria de sangre en nuestras instalaciones. Cada donante puede salvar hasta 4 vidas con su gesto solidario. El año pasado, gracias a nuestras campañas, más de 200 socios y vecinos se convirtieron en donantes regulares.",
             details: "Las jornadas incluyen charlas informativas sobre la importancia de la donación de sangre, controles médicos previos y un espacio de recuperación con refrigerio para los donantes. Nuestro objetivo es concientizar sobre la importancia de la donación regular y derribar mitos sobre esta práctica fundamental para el sistema de salud."
@@ -28,7 +28,7 @@ export default function AccionSocial() {
         {
             id: 3,
             title: "Encuentro de Natación para los niños carenciados",
-            image: "https://res.cloudinary.com/djt5usq8q/image/upload/v1714509529/natacion-social_jnlvz8.jpg",
+            image: "https://res.cloudinary.com/djt5usq8q/image/upload/v1752419355/Swimming_for_everybody_yyholv.png",
             alt: "Natación inclusiva",
             description: "Desde 2019, nuestro programa 'Todos al Agua' brinda clases gratuitas de natación a más de 100 niños de barrios vulnerables de la zona. El programa incluye transporte, equipamiento y merienda, eliminando así las barreras económicas que impiden el acceso a este deporte fundamental para el desarrollo físico y emocional de los pequeños.",
             details: "Las clases son impartidas por nuestros profesores de natación, quienes adaptan la metodología a las necesidades específicas de cada grupo. Además de aprender a nadar, los niños participantes desarrollan habilidades sociales y de trabajo en equipo. Al finalizar cada ciclo, organizamos un festival donde los participantes pueden demostrar sus logros frente a familiares y amigos."
@@ -92,7 +92,8 @@ export default function AccionSocial() {
                                                 <img 
                                                     src={initiative.image}
                                                     alt={initiative.alt}
-                                                    className="w-full aspect-video object-cover transform group-hover:scale-110 transition-all duration-700"
+                                                    className="w-full h-auto object-contain transform group-hover:scale-105 transition-all duration-700 bg-gray-100"
+                                                    style={{ minHeight: '300px', maxHeight: '400px' }}
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                                                     <div className="absolute bottom-0 left-0 right-0 p-8">

@@ -36,8 +36,34 @@ export default function Contact() {
             return;
         }
         
-        // Aquí iría la lógica para enviar el formulario
-        alert('¡Gracias por contactarnos! Te responderemos a la brevedad.');
+        // Crear mensaje para WhatsApp
+        const asuntoTexto = {
+            'consulta': 'Consulta General',
+            'inscripcion': 'Inscripción a Actividades',
+            'socio': 'Información sobre Membresía',
+            'otro': 'Otro'
+        };
+        
+        const mensaje = `*Nuevo contacto desde la web - CASA de Padua*
+        
+*Nombre:* ${formData.name}
+*Email:* ${formData.email}
+*Teléfono:* ${formData.phone || 'No especificado'}
+*Asunto:* ${asuntoTexto[formData.subject]}
+
+*Mensaje:*
+${formData.message}`;
+        
+        // Codificar el mensaje para URL
+        const mensajeCodificado = encodeURIComponent(mensaje);
+        
+        // Crear URL de WhatsApp
+        const whatsappUrl = `https://wa.me/5491134020708?text=${mensajeCodificado}`;
+        
+        // Abrir WhatsApp
+        window.open(whatsappUrl, '_blank');
+        
+        // Limpiar formulario
         setFormData({
             name: '',
             email: '',
@@ -45,6 +71,8 @@ export default function Contact() {
             subject: 'consulta',
             message: ''
         });
+        
+        alert('¡Formulario enviado! Se abrirá WhatsApp para enviar tu mensaje.');
     };
 
     return (
@@ -57,7 +85,7 @@ export default function Contact() {
                         </h2>
                         <p className="mb-8 animate-on-scroll">
                             ¿Tenés alguna pregunta o querés sumarte a nuestras actividades? 
-                            Completá el formulario y nos pondremos en contacto a la brevedad.
+                            Completá el formulario y te contactaremos directamente por WhatsApp.
                         </p>
                         
                         <div className="mb-8 animate-on-scroll">
@@ -214,9 +242,10 @@ export default function Contact() {
                             <div className="text-center">
                                 <button 
                                     type="submit"
-                                    className="bg-casa-purple text-white font-montserrat px-8 py-3 rounded-full hover:bg-casa-yellow hover:text-casa-black transition-all duration-300 shadow-lg"
+                                    className="bg-casa-purple text-white font-montserrat px-8 py-3 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 shadow-lg inline-flex items-center"
                                 >
-                                    Enviar Mensaje
+                                    <i className="fab fa-whatsapp mr-2 text-lg"></i>
+                                    Enviar por WhatsApp
                                 </button>
                             </div>
                         </form>

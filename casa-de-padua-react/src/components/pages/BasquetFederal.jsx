@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { getApiBaseUrl } from '../../config/api';
+import { getApiUrl, getApiBaseUrl } from '../../config/api';
 
 export default function BasquetFederal() {
     const [standings, setStandings] = useState(null);
@@ -16,34 +16,35 @@ export default function BasquetFederal() {
         window.scrollTo(0, 0);
         fetchStandings();
         fetchFixtures();
-    }, []);    
-      const fetchStandings = async () => {
+    }, []);      const fetchStandings = async () => {
         try {
-            // Agregar un pequeño retraso para dar tiempo al servidor para responder
-            // (esto puede ayudar con los servidores gratuitos de render.com que a veces tienen "cold starts")
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            console.log('=== INICIO fetchStandings ===');
+            console.log('Entorno de desarrollo:', import.meta.env.DEV);
+              // Usar la nueva función de API
+            const url = getApiUrl('api/standings/basquet');
+            console.log(`URL a usar: ${url}`);
             
-            // Usar la URL base según el entorno
-            const baseUrl = getApiBaseUrl();
-            const url = `${baseUrl}/api/standings/basquet`;
-            console.log(`Intentando obtener datos de: ${url}`);
-            
-            // Hacer la solicitud a través del proxy en desarrollo o directo en producción
+            // Hacer la solicitud
             const response = await fetch(url, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
             });
             
-            if (!response.ok) {
+            console.log('Response status:', response.status);
+              if (!response.ok) {
+                console.error(`Error en la respuesta del servidor: ${response.status}`);
                 throw new Error(`Error en la respuesta del servidor: ${response.status}`);
             }
             
             const data = await response.json();
+            console.log('Datos recibidos:', data);
             
             if (data.error) {
+                console.error('Error en los datos:', data.error);
                 setError(data.error);
             } else {
+                console.log('Procesando standings...');
                 // Procesar los datos para asegurar que todos los campos estén presentes
                 const processedStandings = data.standings.map(team => {
                     return {
@@ -57,21 +58,23 @@ export default function BasquetFederal() {
                         contra: team.contra || "0"
                     };
                 });
+                console.log('Standings procesados:', processedStandings);
                 setStandings(processedStandings);
                 setLastUpdate(new Date(data.last_update).toLocaleString());
+                console.log('=== FIN fetchStandings EXITOSO ===');
             }
         } catch (error) {
+            console.error('=== ERROR en fetchStandings ===');
+            console.error('Error completo:', error);
             setError('Error al cargar la tabla de posiciones');
-            console.error('Error:', error);
         }
     };    const fetchFixtures = async () => {
         try {
-            // Usar la URL base según el entorno
-            const baseUrl = getApiBaseUrl();
-            const url = `${baseUrl}/api/fixtures/basquet`;
+            // Usar la URL relativa en desarrollo (proxy) o completa en producción
+            const url = import.meta.env.DEV ? '/api/fixtures/basquet' : `${getApiBaseUrl()}/api/fixtures/basquet`;
             console.log(`Intentando obtener fixtures de: ${url}`);
             
-            // Hacer la solicitud a través del proxy en desarrollo o directo en producción
+            // Hacer la solicitud
             const response = await fetch(url, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -250,7 +253,7 @@ export default function BasquetFederal() {
                 </div>
             </section>
 
-            {/* Próximos Partidos */}
+            {/* Próximos Partidos
             <section className="py-16">
                 <div className="container mx-auto px-4 max-w-6xl">
                     <div className="text-center mb-12 animate-on-scroll">
@@ -320,7 +323,7 @@ export default function BasquetFederal() {
                         </p>
                     )}
                 </div>
-            </section>
+            </section> */}
 
             {/* Información y Horarios */}
             <section className="py-16 bg-gray-100">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { getApiBaseUrl } from '../../config/api';
+import { getApiUrl } from '../../config/api';
 
 export default function TiraA() {
     const [standings, setStandings] = useState(null);
@@ -18,9 +18,8 @@ export default function TiraA() {
         fetchFixtures();
     }, []);    const fetchStandings = async () => {
         try {
-            // Obtener URL base dependiendo del entorno
-            const baseUrl = getApiBaseUrl();
-            const url = `${baseUrl}/api/standings/voley/tira-a`;
+            // Usar la nueva función de API
+            const url = getApiUrl('api/standings/voley/tira-a');
             
             const response = await fetch(url, {
                 headers: {
@@ -206,7 +205,7 @@ export default function TiraA() {
                     </div>
                 </section>
 
-                {/* Próximos Partidos */}
+                {/* Próximos Partidos
                 <section className="py-16">
                     <div className="container mx-auto px-4 max-w-6xl">
                         <div className="text-center mb-12 animate-on-scroll">
@@ -276,9 +275,9 @@ export default function TiraA() {
                             </p>
                         )}
                     </div>
-                </section>
+                </section> */}
 
-                {/* Categorías y Horarios */}
+                {/* Categorías y Horarios
                 <section className="py-16 bg-gray-100">
                     <div className="container mx-auto px-4 max-w-6xl">
                         <div className="grid md:grid-cols-2 gap-12">
@@ -366,7 +365,7 @@ export default function TiraA() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Sección CTA */}
                 <section className="py-16 bg-casa-purple text-white">

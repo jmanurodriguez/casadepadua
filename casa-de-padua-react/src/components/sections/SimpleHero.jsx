@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
+// Datos del carrusel
 const slides = [
     {
         image: {
@@ -47,61 +48,44 @@ const slides = [
     }
 ];
 
-export default function Hero() {
+/**
+ * Componente SimpleHero - Versión simplificada con solo lo esencial
+ * para asegurar que los enlaces de Instagram funcionan correctamente
+ */
+export default function SimpleHero() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [touchStart, setTouchStart] = useState(0);
-    const [isMouseOver, setIsMouseOver] = useState(false);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
+    // Funciones para controlar las diapositivas
     const nextSlide = useCallback(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+        setCurrentIndex(prev => (prev + 1) % slides.length);
     }, []);
 
     const prevSlide = useCallback(() => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+        setCurrentIndex(prev => (prev - 1 + slides.length) % slides.length);
     }, []);
 
     const goToSlide = useCallback((index) => {
         setCurrentIndex(index);
     }, []);
 
-    // Autoplay
+    // Autoreproducción
     useEffect(() => {
-        if (isMouseOver) return;
-
+        if (!isAutoPlaying) return;
+        
         const interval = setInterval(nextSlide, 5000);
         return () => clearInterval(interval);
-    }, [nextSlide, isMouseOver]);
+    }, [nextSlide, isAutoPlaying]);
 
-    // Touch events handlers
-    const handleTouchStart = (e) => {
-        setTouchStart(e.touches[0].clientX);
-    };
-
-    const handleTouchEnd = (e) => {
-        const touchEnd = e.changedTouches[0].clientX;
-        const diff = touchStart - touchEnd;
-        const threshold = 50;
-
-        if (Math.abs(diff) > threshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                prevSlide();
-            }
-        }
-    };
+    // Slide actual
+    const currentSlide = slides[currentIndex];    // Eliminamos el handler personalizado y usamos enlaces nativos
 
     return (
-        <div className="pt-20">
-            <div 
-                className="relative w-full h-[70vh] max-h-[700px]"
-                onMouseEnter={() => setIsMouseOver(true)}
-                onMouseLeave={() => setIsMouseOver(false)}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-            >
-                {/* Navigation buttons */}
-                <div className="absolute inset-0 z-40 flex items-center justify-between p-4">
+        <div className="pt-20 relative">
+            {/* Contenedor principal */}
+            <div className="w-full h-[70vh] max-h-[700px] relative overflow-hidden">
+                {/* Navegación - Flechas */}
+                <div className="absolute inset-0 flex items-center justify-between p-4 z-50">
                     <button 
                         onClick={prevSlide}
                         className="bg-casa-black/50 hover:bg-casa-black text-white p-2 rounded-full transition-colors"
@@ -116,48 +100,40 @@ export default function Hero() {
                     >
                         <i className="fas fa-chevron-right text-2xl"></i>
                     </button>
-                </div>
-
-                {/* Slides - Solo renderizar el slide activo */}
-                <div 
-                    key={currentIndex}
-                    className="absolute w-full h-full"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-t from-casa-black via-casa-black/50 to-transparent z-10 pointer-events-none"></div>
-                    <picture className="pointer-events-none">
-                        <source srcSet={slides[currentIndex].image.desktop} media="(min-width: 768px)" />
-                        <source srcSet={slides[currentIndex].image.tablet} media="(min-width: 640px)" />
+                </div>                {/* Imagen de fondo */}
+                <div className="absolute inset-0 z-10">
+                    <div className="absolute inset-0 bg-gradient-to-t from-casa-black via-casa-black/50 to-transparent z-20"></div>
+                    <picture>
+                        <source srcSet={currentSlide.image.desktop} media="(min-width: 768px)" />
+                        <source srcSet={currentSlide.image.tablet} media="(min-width: 640px)" />
                         <img 
-                            src={slides[currentIndex].image.mobile}
+                            src={currentSlide.image.mobile}
+                            alt={currentSlide.title}
                             className="w-full h-full object-cover"
-                            style={{ objectPosition: slides[currentIndex].position }}
-                            alt={slides[currentIndex].title}
-                            loading="eager"
+                            style={{ objectPosition: currentSlide.position }}
+                            loading={currentIndex === 0 ? "eager" : "lazy"}
                         />
                     </picture>
-                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white text-center bg-gradient-to-t from-casa-black/90 to-transparent pt-20 z-50">
-                        <h2 className="text-4xl font-montserrat font-bold mb-4">{slides[currentIndex].title}</h2>
-                        <p className="text-xl mb-6">{slides[currentIndex].description}</p>
-                        <a 
-                            href={slides[currentIndex].link} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="bg-casa-yellow text-casa-black font-montserrat px-8 py-4 rounded-full hover:bg-casa-purple hover:text-casa-white transition-all duration-300 shadow-lg inline-flex items-center cursor-pointer"
-                            style={{textDecoration: 'none', zIndex: 9999, position: 'relative'}}
-                            onClick={() => {
-                                console.log('🎯 BOTÓN CLICKEADO:', slides[currentIndex].title, slides[currentIndex].link);
-                                console.log('🔗 Redirigiendo a:', slides[currentIndex].link);
-                                // El comportamiento por defecto del enlace se ejecutará
-                            }}
-                        >
-                            <i className="fab fa-instagram mr-2"></i>
-                            Seguinos en Instagram
-                        </a>
-                    </div>
                 </div>
 
-                {/* Indicators */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-40">
+                {/* Contenido del slide (título, descripción, botón) */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white text-center bg-gradient-to-t from-casa-black/90 to-transparent pt-20 z-40">
+                    <h2 className="text-4xl font-montserrat font-bold mb-4">{currentSlide.title}</h2>
+                    <p className="text-xl mb-6">{currentSlide.description}</p>
+                      {/* Botón de Instagram simplificado al máximo - sin eventos personalizados */}
+                    <a 
+                        href={currentSlide.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-casa-yellow text-casa-black font-montserrat px-8 py-4 rounded-full hover:bg-casa-purple hover:text-casa-white transition-all duration-300 shadow-lg inline-flex items-center relative z-50"
+                    >
+                        <i className="fab fa-instagram mr-2"></i>
+                        Seguinos en Instagram
+                    </a>
+                </div>
+
+                {/* Indicadores (puntos) */}
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-50">
                     {slides.map((_, index) => (
                         <button
                             key={index}
@@ -170,6 +146,15 @@ export default function Hero() {
                         />
                     ))}
                 </div>
+
+                {/* Botón de pausa/reproducción */}
+                <button
+                    className="absolute bottom-4 right-4 bg-casa-black/50 hover:bg-casa-black text-white p-2 rounded-full transition-colors z-50"
+                    onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                    aria-label={isAutoPlaying ? "Pausar presentación" : "Reproducir presentación"}
+                >
+                    <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-sm`}></i>
+                </button>
             </div>
         </div>
     );

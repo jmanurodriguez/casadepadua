@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { getApiBaseUrl } from '../../config/api';
+import { getApiUrl } from '../../config/api';
 
 export default function TiraB() {
     const [standings, setStandings] = useState(null);
@@ -18,9 +18,8 @@ export default function TiraB() {
         fetchFixtures();
     }, []);    const fetchStandings = async () => {
         try {
-            // Obtener URL base dependiendo del entorno
-            const baseUrl = getApiBaseUrl();
-            const url = `${baseUrl}/api/standings/voley/tira-b`;
+            // Usar la nueva función de API
+            const url = getApiUrl('api/standings/voley/tira-b');
             
             const response = await fetch(url, {
                 headers: {
@@ -207,7 +206,7 @@ export default function TiraB() {
                 </section>
 
                 {/* Próximos Partidos */}
-                <section className="py-16">
+                {/* <section className="py-16">
                     <div className="container mx-auto px-4 max-w-6xl">
                         <div className="text-center mb-12 animate-on-scroll">
                             <h2 className="text-3xl font-montserrat font-bold text-casa-purple mb-4">
@@ -276,10 +275,10 @@ export default function TiraB() {
                             </p>
                         )}
                     </div>
-                </section>
+                </section> */}
 
                 {/* Categorías y Horarios */}
-                <section className="py-16 bg-gray-100">
+                {/* <section className="py-16 bg-gray-100">
                     <div className="container mx-auto px-4 max-w-6xl">
                         <div className="grid md:grid-cols-2 gap-12">
                             <div className="space-y-6 animate-on-scroll">
@@ -366,7 +365,7 @@ export default function TiraB() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Sección CTA */}
                 <section className="py-16 bg-casa-purple text-white">

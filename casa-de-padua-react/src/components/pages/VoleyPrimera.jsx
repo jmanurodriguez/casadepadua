@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { getApiBaseUrl } from '../../config/api';
+import { getApiUrl } from '../../config/api';
 
 export default function VoleyPrimera() {
     const [standings, setStandings] = useState(null);
@@ -18,9 +18,8 @@ export default function VoleyPrimera() {
         fetchFixtures();
     }, []);    const fetchStandings = async () => {
         try {
-            // Obtener URL base dependiendo del entorno
-            const baseUrl = getApiBaseUrl();
-            const url = `${baseUrl}/api/standings/voley/primera`;
+            // Usar la nueva función de API
+            const url = getApiUrl('api/standings/voley/primera');
             
             const response = await fetch(url, {
                 headers: {
@@ -209,7 +208,7 @@ export default function VoleyPrimera() {
                 </div>
             </section>
 
-            {/* Próximos Partidos */}
+            {/* Próximos Partidos
             <section className="py-16">
                 <div className="container mx-auto px-4 max-w-6xl">
                     <div className="text-center mb-12 animate-on-scroll">
@@ -279,7 +278,7 @@ export default function VoleyPrimera() {
                         </p>
                     )}
                 </div>
-            </section>
+            </section> */}
 
             {/* Categorías y Horarios */}
             <section className="py-16 bg-gray-100">

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces Puros de Instagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .instagram-link {
+            background-color: #ffca28;
+            color: #111;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .instagram-link:hover {
+            background-color: #8e24aa;
+            color: white;
+        }
+        .back-button {
+            background-color: #e91e63;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enlaces Puros a Instagram</h1>
+    
+    <div class="links-container">
+        <a class="instagram-link" href="https://www.instagram.com/basquet.casadepadua/" target="_blank">
+            Básquet CASA de Padua
+        </a>
+        
+        <a class="instagram-link" href="https://www.instagram.com/voley.casadepadua/" target="_blank">
+            Vóley CASA de Padua
+        </a>
+        
+        <a class="instagram-link" href="https://www.instagram.com/ritmica.casadepadua/" target="_blank">
+            Gimnasia Rítmica CASA de Padua
+        </a>
+        
+        <a class="instagram-link" href="https://www.instagram.com/natatorio.casadepadua/" target="_blank">
+            Natatorio CASA de Padua
+        </a>
+    </div>
+    
+    <p>Estos son enlaces HTML puros sin ningún tipo de interferencia de React o JavaScript.</p>
+    
+    <a class="back-button" href="javascript:history.back()">Volver</a>
+    
+    <script>
+        // Simple script to log when links are clicked
+        document.querySelectorAll('.instagram-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                console.log('Enlace clickeado:', this.href);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta de prueba de enlaces</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .instructions {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196F3;
+        }
+        .test-section {
+            margin-bottom: 40px;
+        }
+        .test-section h2 {
+            margin-bottom: 15px;
+            color: #2196F3;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .link-button {
+            display: inline-block;
+            background-color: #ffca28;
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+        }
+        .inspect-button {
+            background-color: #9c27b0;
+            color: white;
+        }
+        .html-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .js-button {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Herramienta de prueba de enlaces</h1>
+    
+    <div class="instructions">
+        <p><strong>Instrucciones:</strong> Esta página te permite probar diferentes tipos de enlaces a Instagram para identificar qué implementación funciona mejor. Prueba cada uno de los botones y compara los resultados.</p>
+        <p>Si uno funciona y otro no, sabremos qué enfoque utilizar para arreglar el componente Hero.</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>1. Enlaces HTML Puros</h2>
+        <p>Estos son enlaces HTML simples sin JavaScript adicional.</p>
+        
+        <div class="button-container">
+            <a class="link-button" href="https://www.instagram.com/basquet.casadepadua/" target="_blank" rel="noopener noreferrer">
+                Instagram Básquet (HTML Puro)
+            </a>
+            
+            <a class="link-button" href="https://www.instagram.com/voley.casadepadua/" target="_blank" rel="noopener noreferrer">
+                Instagram Vóley (HTML Puro)
+            </a>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Enlaces con JavaScript onClick</h2>
+        <p>Estos enlaces usan JavaScript para abrir la ventana.</p>
+        
+        <div class="button-container">
+            <a class="link-button js-button" href="#" onclick="window.open('https://www.instagram.com/basquet.casadepadua/', '_blank'); return false;">
+                Instagram Básquet (JavaScript)
+            </a>
+            
+            <a class="link-button js-button" href="#" onclick="window.open('https://www.instagram.com/voley.casadepadua/', '_blank'); return false;">
+                Instagram Vóley (JavaScript)
+            </a>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Verificación de DIV bloqueantes</h2>
+        <p>A veces los enlaces no funcionan porque hay divs invisibles bloqueando los clicks.</p>
+        
+        <div style="position: relative; padding: 20px; border: 1px dashed #ccc;">
+            <a class="link-button" href="https://www.instagram.com/basquet.casadepadua/" target="_blank" rel="noopener noreferrer">
+                Enlace con posible interferencia
+            </a>
+            
+            <!-- Div que podría estar bloqueando los clicks -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+            
+            <p style="margin-top: 10px; font-size: 14px;">Este tiene un div superpuesto con z-index -1 (no debería interferir).</p>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Herramientas adicionales</h2>
+        <div class="button-container">
+            <a class="link-button html-button" href="pure-instagram-links.html">
+                Abrir página de enlaces HTML puros
+            </a>
+            
+            <a class="link-button inspect-button" href="#" onclick="loadDebugger(); return false;">
+                Cargar herramienta de inspección de enlaces
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Función para cargar el depurador de enlaces
+        function loadDebugger() {
+            const script = document.createElement('script');
+            script.src = 'link-debugger.js';
+            document.body.appendChild(script);
+            alert('Herramienta de depuración cargada. Busca el botón "🔍 Debug Links" en la esquina inferior derecha.');
+        }
+    </script>
+</body>
+</html>

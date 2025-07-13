@@ -6,7 +6,7 @@ import Footer from './components/layout/Footer';
 import WelcomeModal from './components/layout/WelcomeModal';
 
 // Section components
-import Hero from './components/sections/Hero';
+import Hero from './components/sections/Hero'; // Cambiado a UltraSimpleHero
 import Header from './components/sections/Header';
 import News from './components/sections/News';
 import Events from './components/sections/Events';
@@ -24,6 +24,9 @@ import Instalaciones from './components/pages/Instalaciones';
 import AccionSocial from './components/pages/AccionSocial';
 import BasquetFederal from './components/pages/BasquetFederal';
 import BasquetMetropolitano from './components/pages/BasquetMetropolitano';
+import InferioresTiraA from './components/pages/BasquetInferioresTiraA';
+import InferioresTiraB from './components/pages/BasquetInferioresTiraB';
+import InferioresTiraFlex from './components/pages/BasquetInferioresTiraFlex';
 import Voley from './components/pages/Voley';
 import GimnasiaRitmica from './components/pages/GimnasiaRitmica';
 import Aquagym from './components/pages/Aquagym';
@@ -48,6 +51,12 @@ import TiraA from './components/pages/TiraA';
 import TiraB from './components/pages/TiraB';
 import VoleyLiga from './components/pages/VoleyLiga';
 import VoleyPrimera from './components/pages/VoleyPrimera';
+import VoleyMaxyFemenino from './components/pages/voleyMaxyFemenino';
+import VoleyMaxyMasculino from './components/pages/voleyMaxyMasculino';
+import ApiTest from './components/ApiTest';
+import ConfigTest from './components/ConfigTest';
+// import SimpleBasquetTest from './components/SimpleBasquetTest'; // Comentado - archivo vacío
+
 
 // Layout component for common structure
 function Layout({ children }) {
@@ -92,11 +101,16 @@ function App() {
           <Route path="/basquet" element={<Navigate to="/basquet/federal" replace />} />
           <Route path="/basquet/federal" element={<Layout><BasquetFederal /></Layout>} />
           <Route path="/basquet/metropolitano" element={<Layout><BasquetMetropolitano /></Layout>} />
+          <Route path="/basquet/inferiores-tira-a" element={<Layout><InferioresTiraA /></Layout>} />
+          <Route path="/basquet/inferiores-tira-b" element={<Layout><InferioresTiraB /></Layout>} />
+          <Route path="/basquet/inferiores-tira-flex" element={<Layout><InferioresTiraFlex /></Layout>} />
           <Route path="/voley" element={<Layout><Voley /></Layout>} />
+          <Route path="/voley/primera" element={<Layout><VoleyPrimera /></Layout>} />
           <Route path="/voley/tira-a" element={<Layout><TiraA /></Layout>} />
           <Route path="/voley/tira-b" element={<Layout><TiraB /></Layout>} />
+          <Route path="/voley/maxy-femenino" element={<Layout><VoleyMaxyFemenino /></Layout>} />
+          <Route path="/voley/maxy-masculino" element={<Layout><VoleyMaxyMasculino /></Layout>} />
           <Route path="/voley/voley-liga" element={<Layout><VoleyLiga /></Layout>} />
-          <Route path="/voley/primera" element={<Layout><VoleyPrimera /></Layout>} />
           <Route path="/gimnasia" element={<Layout><GimnasiaRitmica /></Layout>} />
           <Route path="/aquagym" element={<Layout><Aquagym /></Layout>} />
           <Route path="/natacion" element={<Layout><Natacion /></Layout>} />
@@ -125,6 +139,8 @@ function App() {
           <Route path="/yoga" element={<Layout><Yoga /></Layout>} />
           <Route path="/novedades" element={<Layout><Novedades /></Layout>} />
           <Route path="/deportes-y-actividades" element={<Layout><DeportesYActividades /></Layout>} />
+          <Route path="/api-test" element={<Layout><ApiTest /></Layout>} />
+          <Route path="/config-test" element={<Layout><ConfigTest /></Layout>} />
       </Routes>
     </Router>
   );

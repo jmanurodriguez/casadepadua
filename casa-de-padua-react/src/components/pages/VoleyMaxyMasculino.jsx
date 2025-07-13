@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-export default function BasquetMetropolitano() {
+export default function VoleyMaxyMasculino() {
     useScrollAnimation();
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function BasquetMetropolitano() {
                             </div>
                             <div className="md:w-2/3 text-center md:text-left">
                                 <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6">
-                                    Basquet Metropolitano CASA de Padua
+                                    Voléy Maxy Masculino CASA de Padua
                                 </h1>
                                 <p className="text-lg md:text-xl opacity-90">
                                     Próximamente, página en construcción

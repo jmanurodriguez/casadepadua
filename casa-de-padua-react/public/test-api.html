@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API Connection</title>
+</head>
+<body>
+    <h1>Test de Conexión API</h1>
+    <div id="results"></div>
+    
+    <script>
+        const resultsDiv = document.getElementById('results');
+        
+        async function testApi() {
+            try {
+                resultsDiv.innerHTML += '<p>Iniciando prueba de API...</p>';
+                
+                // Test 1: API directa al backend
+                resultsDiv.innerHTML += '<h3>Test 1: Conexión directa al backend</h3>';
+                const directResponse = await fetch('http://localhost:8000/api/standings/basquet');
+                resultsDiv.innerHTML += `<p>Status directo: ${directResponse.status}</p>`;
+                
+                if (directResponse.ok) {
+                    const directData = await directResponse.json();
+                    resultsDiv.innerHTML += `<p>Datos directos: ${JSON.stringify(directData).substring(0, 200)}...</p>`;
+                }
+                
+                // Test 2: API a través del proxy
+                resultsDiv.innerHTML += '<h3>Test 2: Conexión a través del proxy de Vite</h3>';
+                const proxyResponse = await fetch('/api/standings/basquet');
+                resultsDiv.innerHTML += `<p>Status proxy: ${proxyResponse.status}</p>`;
+                
+                if (proxyResponse.ok) {
+                    const proxyData = await proxyResponse.json();
+                    resultsDiv.innerHTML += `<p>Datos proxy: ${JSON.stringify(proxyData).substring(0, 200)}...</p>`;
+                } else {
+                    resultsDiv.innerHTML += `<p>Error proxy: ${await proxyResponse.text()}</p>`;
+                }
+                
+            } catch (error) {
+                resultsDiv.innerHTML += `<p style="color: red;">Error: ${error.message}</p>`;
+                console.error('Error:', error);
+            }
+        }
+        
+        // Ejecutar test al cargar la página
+        testApi();
+    </script>
+</body>
+</html>

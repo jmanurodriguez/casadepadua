@@ -56,16 +56,21 @@ export default function Navbar() {
             label: 'Básquet', 
             subItems: [
                 { label: 'Federal', href: '/basquet/federal' },
-                { label: 'Metropolitano', href: '/basquet/metropolitano' }
+                { label: 'Metropolitano', href: '/basquet/metropolitano' },
+                { label: 'Inferiores Tira A', href: '/basquet/inferiores-tira-a' },
+                { label: 'Inferiores Tira B', href: '/basquet/inferiores-tira-b' },
+                { label: 'Inferiores Tira Flex', href: '/basquet/inferiores-tira-flex' }
             ]
         },
         { 
             label: 'Vóley', 
             subItems: [
+                { label: 'Primera División', href: '/voley/primera' },
                 { label: 'Tira A', href: '/voley/tira-a' },
                 { label: 'Tira B', href: '/voley/tira-b' },
                 { label: 'Liga', href: '/voley/voley-liga' },
-                { label: 'Primera División', href: '/voley/primera' }
+                { label: 'Maxy Femenino', href: '/voley/maxy-femenino' },
+                { label: 'Maxy Masculino', href: '/voley/maxy-masculino' }
             ]
         },
         { 

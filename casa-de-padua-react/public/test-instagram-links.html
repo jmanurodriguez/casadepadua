@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Instagram Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffca28;
+            color: #111;
+            font-weight: bold;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .instagram-link:hover {
+            background-color: #8e24aa;
+            color: white;
+        }
+        .icon {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enlaces de Instagram CASA de Padua</h1>
+    
+    <div class="link-container">
+        <a class="instagram-link" href="https://www.instagram.com/basquet.casadepadua/" target="_blank" rel="noopener noreferrer">
+            <span class="icon">📱</span> Instagram Básquet
+        </a>
+        
+        <a class="instagram-link" href="https://www.instagram.com/voley.casadepadua/" target="_blank" rel="noopener noreferrer">
+            <span class="icon">📱</span> Instagram Vóley
+        </a>
+        
+        <a class="instagram-link" href="https://www.instagram.com/ritmica.casadepadua/" target="_blank" rel="noopener noreferrer">
+            <span class="icon">📱</span> Instagram Gimnasia Rítmica
+        </a>
+        
+        <a class="instagram-link" href="https://www.instagram.com/natatorio.casadepadua/" target="_blank" rel="noopener noreferrer">
+            <span class="icon">📱</span> Instagram Natatorio
+        </a>
+    </div>
+    
+    <p style="margin-top: 30px;">Estos enlaces deberían abrirse en una nueva pestaña.</p>
+</body>
+</html>
