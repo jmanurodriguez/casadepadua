@@ -164,7 +164,7 @@ export default function BasquetFederal() {
                             <div className="md:w-1/2 animate-on-scroll">
                                 <div className="rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                                     <img 
-                                        src="https://res.cloudinary.com/djt5usq8q/image/upload/v1746028606/backgroundweb_CASA_uvquqh.png"
+                                        src="https://res.cloudinary.com/djt5usq8q/image/upload/v1744812494/PADUA-194_1_weef34.jpg"
                                         alt="Equipo de Básquet CASA de Padua"
                                         className="w-full h-auto object-cover"
                                     />
