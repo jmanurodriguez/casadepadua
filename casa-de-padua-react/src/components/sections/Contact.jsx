@@ -58,7 +58,7 @@ ${formData.message}`;
         const mensajeCodificado = encodeURIComponent(mensaje);
         
         // Crear URL de WhatsApp
-        const whatsappUrl = `https://wa.me/5491135781105?text=${mensajeCodificado}`;
+        const whatsappUrl = `https://wa.me/5491140555387?text=${mensajeCodificado}`;
         
         // Abrir WhatsApp
         window.open(whatsappUrl, '_blank');

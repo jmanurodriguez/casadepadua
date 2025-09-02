@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+  import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
